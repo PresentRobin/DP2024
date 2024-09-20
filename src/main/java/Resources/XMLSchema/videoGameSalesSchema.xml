@@ -1,0 +1,25 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="video_games">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="game" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="rank" type="xs:int" />
+                            <xs:element name="name" type="xs:string" />
+                            <xs:element name="platform" type="xs:string" />
+                            <xs:element name="year" type="xs:int" />
+                            <xs:element name="genre" type="xs:string" />
+                            <xs:element name="publisher" type="xs:string" />
+                            <xs:element name="na_sales" type="xs:decimal" />
+                            <xs:element name="eu_sales" type="xs:decimal" />
+                            <xs:element name="jp_sales" type="xs:decimal" />
+                            <xs:element name="other_sales" type="xs:decimal" />
+                            <xs:element name="global_sales" type="xs:decimal" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

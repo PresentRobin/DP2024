@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "moistmeterReviews",
+  "properties": {
+    "moistmeterReviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ID":
+          { "type": "integer",
+            "description": "the ID of the review"},
+          "review_date":
+          { "type": "string",
+            "format": "date",
+            "description": "the date on which MoistCritical published the review"},
+          "category":
+          { "type": "string",
+            "description": "categorizes the review in either video games or movies"},
+          "title":
+          { "type": "string",
+            "description": "the title of the product being reviewed"},
+          "imdb_rating":
+          { "type": "number",
+            "description": "the rating of the product on IMDB for reference"},
+          "rt_critics_rating":
+          { "type": "integer",
+            "description": "the rating of the product on Rotten Tomatoes for reference"},
+          "moistmeter_rating":
+          { "type": "integer",
+            "description": "the rating which MoistCritical gave the product"},
+          "genre":
+          { "type": "string",
+            "description": "the genre of the product"}
+        },
+        "required": ["ID", "review_date", "category", "title", "moistmeter_rating"]
+      }
+    }
+  }
+}

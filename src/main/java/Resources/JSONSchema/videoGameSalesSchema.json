@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "videoGameSales",
+  "properties": {
+    "videoGameSales": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "rank":
+            { "type": "integer",
+              "description": "The rank of the video game"},
+          "name":
+            { "type": "string",
+              "description": "The name of the video game"},
+          "platform":
+            { "type": "string",
+              "description": "The console name where the video game is released on"},
+          "year":
+            { "type": "integer",
+              "description": "The year of release of video game"},
+          "genre":
+            { "type": "string",
+              "description": "The genre of the video game"},
+          "publisher":
+            { "type": "string",
+              "description": "the company which released the video game"},
+          "na_sales":
+            { "type": "number",
+              "description": "the amount of sales of the video game in North America"},
+          "eu_sales":
+            { "type": "number",
+              "description": "the amount of sales of the video game in Europe"},
+          "jp_sales":
+            { "type": "number",
+              "description": "the amount of sales of the video game in Japan"},
+          "other_sales":
+            { "type": "number",
+              "description": "sales that have been made outside of the already listed regions"},
+          "global_sales":
+            { "type": "number",
+              "description": "overall sales of the video game"}
+        },
+        "required": ["rank", "name", "platform", "year", "genre", "publisher", "na_sales", "global_sales"]
+      }
+    }
+  }
+}
