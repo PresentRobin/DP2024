@@ -27,7 +27,7 @@ public class HighestGrossingMoviesController {
 
     @GetMapping("/{id}")
     public ResponseEntity<HighestGrossingMovies> getMovieById(@PathVariable Long id) {
-        Optional<HighestGrossingMovies> highestGrossingMovies = highestGrossingMoviesService.findById(id);
+        Optional<HighestGrossingMovies> highestGrossingMovies = Optional.ofNullable(highestGrossingMoviesService.findById(id));
         if (highestGrossingMovies.isPresent()) {
             return ResponseEntity.ok(highestGrossingMovies.get());
         } else {
@@ -37,15 +37,15 @@ public class HighestGrossingMoviesController {
 
     @PostMapping
     public HighestGrossingMovies createMovie(@RequestBody HighestGrossingMovies highestGrossingMovies) {
-        return highestGrossingMoviesService.save(highestGrossingMovies);
+        return highestGrossingMoviesService.saveMovie(highestGrossingMovies);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<HighestGrossingMovies> updateMovies(@PathVariable Long id, @RequestBody HighestGrossingMovies highestGrossingMovies) {
-        Optional<HighestGrossingMovies> existingGame = highestGrossingMoviesService.findById(id);
+        Optional<HighestGrossingMovies> existingGame = Optional.ofNullable(highestGrossingMoviesService.findById(id));
         if (existingGame.isPresent()) {
             highestGrossingMovies.setId(id);
-            return ResponseEntity.ok(highestGrossingMoviesService.save(highestGrossingMovies));
+            return ResponseEntity.ok(highestGrossingMoviesService.saveMovie(highestGrossingMovies));
         } else {
             return ResponseEntity.notFound().build();
         }
@@ -53,9 +53,9 @@ public class HighestGrossingMoviesController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
-        Optional<HighestGrossingMovies> existingMovie = highestGrossingMoviesService.findById(id);
+        Optional<HighestGrossingMovies> existingMovie = Optional.ofNullable(highestGrossingMoviesService.findById(id));
         if (existingMovie.isPresent()) {
-            highestGrossingMoviesService.deleteById(id);
+            highestGrossingMoviesService.deleteMovie(id);
             return ResponseEntity.ok().build();
         } else {
             return ResponseEntity.notFound().build();
