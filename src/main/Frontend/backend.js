@@ -55,8 +55,8 @@ function renderVideoGameSalesChart(data) {
     });
 }
 
-function renderMoistmeterReviewChart(data) {
-    const ctx = document.getElementById('moistmeterReviewChart').getContext('2d');
+function renderMoistmeterChart(data) {
+    const ctx = document.getElementById('moistmeterChart').getContext('2d');
     const chartData = {
         labels: data.map(item => item.title),
         datasets: [{

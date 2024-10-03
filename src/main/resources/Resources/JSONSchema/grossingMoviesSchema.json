@@ -1,58 +1,21 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "HighestGrossingMovies",
   "type": "object",
-  "title": "grossingMovies",
   "properties": {
-    "hollywood_movies": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "ID":
-          { "type": "integer",
-            "description": "generates a unique ID"},
-          "title":
-          { "type": "string",
-            "description": "the title of the movie"},
-          "movie_info":
-          { "type": "string",
-            "description": "a short description of the movie"},
-          "year":
-          { "type": "integer",
-            "description": "the year of the movies release"},
-          "distributor":
-          { "type": "string",
-            "description": "the company name that distributed the movie"},
-          "budget":
-          { "type": "number",
-            "description": "the budget of production"},
-          "domestic_opening":
-          { "type": "number",
-            "description": "money made upon release"},
-          "domestic_sales":
-          { "type": "number",
-            "description": "money made within the country of release"},
-          "international_sales":
-          { "type": "number",
-            "description": "money made outside the country of release"},
-          "world_wide_sales":
-          { "type": "number",
-            "description": "total amount of money made from the movie"},
-          "release_date":
-          { "type": "string",
-            "format": "date",
-            "description": "date of release"},
-          "genre":
-          { "type": "string",
-            "description": "genre of the movie"},
-          "running_time":
-          { "type": "integer",
-            "description": "the length of the movie"},
-          "license":
-          { "type": "string" }
-        },
-        "required": ["ID", "title", "year", "world_wide_sales"]
-      }
-    }
-  }
+    "id": { "type": "integer" },
+    "movieId": { "type": "string" },
+    "title": { "type": "string" },
+    "lifetimeGross": { "type": "number" },
+    "year": { "type": "integer" },
+    "studio": { "type": "string" },
+    "rating": { "type": "string" },
+    "runtime": { "type": "number" },
+    "budget": { "type": "number" },
+    "releaseDate": { "type": "string", "format": "date" },
+    "voteAvg": { "type": "number" },
+    "voteCount": { "type": "integer" },
+    "franchiseId": { "type": "integer" }
+  },
+  "required": ["movieId", "title", "lifetimeGross"]
 }

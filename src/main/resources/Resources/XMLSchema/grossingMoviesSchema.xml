@@ -1,27 +1,20 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="grossingMovies">
+    <xs:element name="HighestGrossingMovies">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="movie" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="ID" type="xs:int" />
-                            <xs:element name="title" type="xs:string" />
-                            <xs:element name="movie_info" type="xs:string" />
-                            <xs:element name="year" type="xs:int" />
-                            <xs:element name="distributor" type="xs:string" />
-                            <xs:element name="budget" type="xs:decimal" />
-                            <xs:element name="domestic_opening" type="xs:decimal" />
-                            <xs:element name="domestic_sales" type="xs:decimal" />
-                            <xs:element name="international_sales" type="xs:decimal" />
-                            <xs:element name="world_wide_sales" type="xs:decimal" />
-                            <xs:element name="release_date" type="xs:date" />
-                            <xs:element name="genre" type="xs:string" />
-                            <xs:element name="running_time" type="xs:int" />
-                            <xs:element name="license" type="xs:string" />
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
+                <xs:element name="id" type="xs:long" />
+                <xs:element name="movieId" type="xs:string" />
+                <xs:element name="title" type="xs:string" />
+                <xs:element name="lifetimeGross" type="xs:decimal" />
+                <xs:element name="year" type="xs:int" />
+                <xs:element name="studio" type="xs:string" />
+                <xs:element name="rating" type="xs:string" />
+                <xs:element name="runtime" type="xs:decimal" />
+                <xs:element name="budget" type="xs:decimal" />
+                <xs:element name="releaseDate" type="xs:string" />
+                <xs:element name="voteAvg" type="xs:decimal" />
+                <xs:element name="voteCount" type="xs:int" />
+                <xs:element name="franchiseId" type="xs:long" />
             </xs:sequence>
         </xs:complexType>
     </xs:element>

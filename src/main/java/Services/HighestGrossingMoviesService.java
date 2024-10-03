@@ -6,32 +6,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class HighestGrossingMoviesService {
 
-    private final HighestGrossingMoviesRepo highestGrossingMoviesRepo;
-
     @Autowired
-    public HighestGrossingMoviesService(HighestGrossingMoviesRepo highestGrossingMoviesRepo) {
-        this.highestGrossingMoviesRepo = highestGrossingMoviesRepo;
-    }
+    private HighestGrossingMoviesRepo highestGrossingMoviesRepo;
 
-    public List<HighestGrossingMovies> findAll() {
+    public List<HighestGrossingMovies> getHighestGrossingMoviesgetAllMovies() {
         return highestGrossingMoviesRepo.findAll();
     }
 
-    public Optional<HighestGrossingMovies> findById(Long id) {
-        return highestGrossingMoviesRepo.findById(id);
+    public HighestGrossingMovies getMovieById(Long id) {
+        return highestGrossingMoviesRepo.findById(id).orElse(null);
     }
 
-
-    public HighestGrossingMovies save(HighestGrossingMovies highestGrossingMovies) {
+    public HighestGrossingMovies saveMovie(HighestGrossingMovies highestGrossingMovies) {
         return highestGrossingMoviesRepo.save(highestGrossingMovies);
     }
 
-    public void deleteById(Long id) {
+    public void deleteMovie(Long id) {
         highestGrossingMoviesRepo.deleteById(id);
     }
 }
