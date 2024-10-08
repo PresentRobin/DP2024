@@ -26,7 +26,7 @@ public class VideoGameSalesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<VideoGameSales> getVideoGameById(@PathVariable Long id) {
+    public ResponseEntity<VideoGameSales> getVideoGameById(@PathVariable int id) {
         Optional<VideoGameSales> videoGameSales = Optional.ofNullable(videoGameSalesService.findById(id));
         return videoGameSales.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -37,7 +37,7 @@ public class VideoGameSalesController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<VideoGameSales> updateVideoGame(@PathVariable Long id, @RequestBody VideoGameSales videoGameSales) {
+    public ResponseEntity<VideoGameSales> updateVideoGame(@PathVariable int id, @RequestBody VideoGameSales videoGameSales) {
         Optional<VideoGameSales> existingGame = Optional.ofNullable(videoGameSalesService.findById(id));
         if (existingGame.isPresent()) {
             videoGameSales.setId(id);
@@ -48,7 +48,7 @@ public class VideoGameSalesController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteVideoGame(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteVideoGame(@PathVariable int id) {
         Optional<VideoGameSales> existingGame = Optional.ofNullable(videoGameSalesService.findById(id));
         if (existingGame.isPresent()) {
             videoGameSalesService.deleteById(id);

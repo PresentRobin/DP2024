@@ -18,7 +18,7 @@ public class HighestGrossingMoviesService {
         return highestGrossingMoviesRepo.findAll();
     }
 
-    public HighestGrossingMovies findById(Long id) {
+    public HighestGrossingMovies findById(int id) {
         return highestGrossingMoviesRepo.findById(id).orElse(null);
     }
 
@@ -26,15 +26,15 @@ public class HighestGrossingMoviesService {
         return highestGrossingMoviesRepo.save(highestGrossingMovies);
     }
 
-    public void deleteMovie(Long id) {
+    public void deleteMovie(int id) {
         highestGrossingMoviesRepo.deleteById(id);
     }
 
-    public HighestGrossingMovies setMovieID(Long oldId, Long newId) {
+    public HighestGrossingMovies setMovieID(int oldId, int newId) {
         Optional<HighestGrossingMovies> movieOptional = highestGrossingMoviesRepo.findById(oldId);
         if (movieOptional.isPresent()) {
             HighestGrossingMovies movie = movieOptional.get();
-            movie.setId(newId);  // Set the new ID
+            movie.setMovieId(newId);  // Set the new ID
             return highestGrossingMoviesRepo.save(movie);  // Save with new ID
         }
         return null;  // Return null if the movie with oldId doesn't exist

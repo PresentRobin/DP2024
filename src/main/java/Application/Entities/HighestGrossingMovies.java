@@ -2,6 +2,7 @@ package Application.Entities;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 @Entity
 @Table(name = "highestgrossingmovies")
@@ -9,61 +10,51 @@ public class HighestGrossingMovies {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "MovieID")
+    private int movieId;
 
+    @Column(name = "MovieIndex")
+    private int movieIndex;
 
-    @Column(name = "movie_id")
-    private String movieId;
-
-    @Column(name = "title")
+    @Column(name = "Title")
     private String title;
 
-    @Column(name = "lifetime_gross")
+    @Column(name = "Lifetime_Gross")
     private BigDecimal lifetimeGross;
 
-    @Column(name = "year")
+    @Column(name = "Year")
     private Integer year;
 
-    @Column(name = "studio")
+    @Column(name = "Studio")
     private String studio;
 
-    @Column(name = "rating")
+    @Column(name = "Rating")
     private String rating;
 
-    @Column(name = "runtime")
-    private BigDecimal runtime;
+    @Column(name = "Runtime")
+    private int runtime;
 
-    @Column(name = "budget")
-    private BigDecimal budget;
+    @Column(name = "Budget")
+    private int budget;
 
-    @Column(name = "release_date")
-    private String releaseDate;
+    @Column(name = "ReleaseDate")
+    private Date releaseDate;
 
-    @Column(name = "vote_avg")
-    private BigDecimal voteAvg;
+    @Column(name = "VoteAvg")
+    private double voteAvg;
 
-    @Column(name = "vote_count")
+    @Column(name = "VoteCount")
     private Integer voteCount;
 
-    @Column(name = "franchise_id")
-    private Long franchiseId;
+    @Column(name = "FranchiseID")
+    private int franchiseId;
 
     // Getters and Setters
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getMovieId() {
+    public int getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(String movieId) {
+    public void setMovieId(int movieId) {
         this.movieId = movieId;
     }
 
@@ -107,35 +98,35 @@ public class HighestGrossingMovies {
         this.rating = rating;
     }
 
-    public BigDecimal getRuntime() {
+    public int getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(BigDecimal runtime) {
+    public void setRuntime(int runtime) {
         this.runtime = runtime;
     }
 
-    public BigDecimal getBudget() {
+    public int getBudget() {
         return budget;
     }
 
-    public void setBudget(BigDecimal budget) {
+    public void setBudget(int budget) {
         this.budget = budget;
     }
 
-    public String getReleaseDate() {
+    public Date getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
     }
 
-    public BigDecimal getVoteAvg() {
+    public double getVoteAvg() {
         return voteAvg;
     }
 
-    public void setVoteAvg(BigDecimal voteAvg) {
+    public void setVoteAvg(double voteAvg) {
         this.voteAvg = voteAvg;
     }
 
@@ -147,11 +138,11 @@ public class HighestGrossingMovies {
         this.voteCount = voteCount;
     }
 
-    public Long getFranchiseId() {
+    public int getFranchiseId() {
         return franchiseId;
     }
 
-    public void setFranchiseId(Long franchiseId) {
+    public void setFranchiseId(int franchiseId) {
         this.franchiseId = franchiseId;
     }
 }

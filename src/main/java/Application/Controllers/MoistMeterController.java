@@ -1,7 +1,7 @@
-package Controllers;
+package Application.Controllers;
 
-import Entities.MoistMeter;
-import Services.MoistMeterService;
+import Application.Entities.MoistMeter;
+import Application.Services.MoistMeterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,13 +26,9 @@ public class MoistMeterController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<MoistMeter> getReviewById(@PathVariable Long id) {
+    public ResponseEntity<MoistMeter> getReviewById(@PathVariable int id) {
         Optional<MoistMeter> moist = moistMeterService.findById(id);
-        if (moist.isPresent()) {
-            return ResponseEntity.ok(moist.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return moist.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
@@ -41,7 +37,7 @@ public class MoistMeterController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<MoistMeter> updateReview(@PathVariable Long id, @RequestBody MoistMeter moistMeter) {
+    public ResponseEntity<MoistMeter> updateReview(@PathVariable int id, @RequestBody MoistMeter moistMeter) {
         Optional<MoistMeter> existingReview = moistMeterService.findById(id);
         if (existingReview.isPresent()) {
             moistMeter.setId(id);
@@ -52,7 +48,7 @@ public class MoistMeterController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteReview(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteReview(@PathVariable int id) {
         Optional<MoistMeter> existingMoist = moistMeterService.findById(id);
         if (existingMoist.isPresent()) {
             moistMeterService.deleteById(id);

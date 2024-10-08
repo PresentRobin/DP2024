@@ -1,8 +1,8 @@
 -- Create the database
-CREATE DATABASE IF NOT EXISTS dataProcessingData;
+CREATE DATABASE IF NOT EXISTS dataprocessingdata;
 
 -- Use the newly created database
-USE dataProcessingData;
+USE dataprocessingdata;
 
 -- Create the VideoGameSales table
 CREATE TABLE IF NOT EXISTS VideoGameSales (

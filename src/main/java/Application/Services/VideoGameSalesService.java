@@ -22,7 +22,7 @@ public class VideoGameSalesService {
         return videoGameSalesRepository.findAll();
     }
 
-    public VideoGameSales findById(Long id) {
+    public VideoGameSales findById(int id) {
         return videoGameSalesRepository.findById(id).orElse(null);
     }
 
@@ -30,7 +30,7 @@ public class VideoGameSalesService {
         return videoGameSalesRepository.save(videoGameSales);
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(int id) {
         videoGameSalesRepository.deleteById(id);
     }
 }

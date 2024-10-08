@@ -26,7 +26,7 @@ public class HighestGrossingMoviesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<HighestGrossingMovies> getMovieById(@PathVariable Long id) {
+    public ResponseEntity<HighestGrossingMovies> getMovieById(@PathVariable int id) {
         Optional<HighestGrossingMovies> highestGrossingMovies = Optional.ofNullable(highestGrossingMoviesService.findById(id));
         return highestGrossingMovies.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -37,10 +37,10 @@ public class HighestGrossingMoviesController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<HighestGrossingMovies> updateMovies(@PathVariable Long id, @RequestBody HighestGrossingMovies highestGrossingMovies) {
+    public ResponseEntity<HighestGrossingMovies> updateMovies(@PathVariable int id, @RequestBody HighestGrossingMovies highestGrossingMovies) {
         Optional<HighestGrossingMovies> existingGame = Optional.ofNullable(highestGrossingMoviesService.findById(id));
         if (existingGame.isPresent()) {
-            highestGrossingMovies.setId(id);
+            highestGrossingMovies.setMovieId(id);
             return ResponseEntity.ok(highestGrossingMoviesService.saveMovie(highestGrossingMovies));
         } else {
             return ResponseEntity.notFound().build();
@@ -48,7 +48,7 @@ public class HighestGrossingMoviesController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMovie(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteMovie(@PathVariable int id) {
         Optional<HighestGrossingMovies> existingMovie = Optional.ofNullable(highestGrossingMoviesService.findById(id));
         if (existingMovie.isPresent()) {
             highestGrossingMoviesService.deleteMovie(id);

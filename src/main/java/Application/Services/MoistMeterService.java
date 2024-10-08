@@ -22,7 +22,7 @@ public class MoistMeterService {
         return moistMeterRepo.findAll();
     }
 
-    public Optional<MoistMeter> findById(Long id) {
+    public Optional<MoistMeter> findById(int id) {
         return moistMeterRepo.findById(id);
     }
 
@@ -30,7 +30,7 @@ public class MoistMeterService {
         return moistMeterRepo.save(moistmeterReview);
     }
 
-    public void deleteById(Long id) {
+    public void deleteById(int id) {
         moistMeterRepo.deleteById(id);
     }
 }

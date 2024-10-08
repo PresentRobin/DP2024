@@ -11,7 +11,7 @@ public class MoistMeter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
-    private Long id;
+    private int id;
 
     @Column(name = "review_date")
     private Date reviewDate;
@@ -36,11 +36,11 @@ public class MoistMeter {
 
     // Getters and Setters
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
