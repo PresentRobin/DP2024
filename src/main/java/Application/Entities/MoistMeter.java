@@ -1,11 +1,11 @@
-package Entities;
+package Application.Entities;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "moistmeter_reviews")
+@Table(name = "moistmeter")
 public class MoistMeter {
 
     @Id

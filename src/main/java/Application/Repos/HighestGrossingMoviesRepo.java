@@ -1,6 +1,6 @@
-package Repos;
+package Application.Repos;
 
-import Entities.HighestGrossingMovies;
+import Application.Entities.HighestGrossingMovies;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

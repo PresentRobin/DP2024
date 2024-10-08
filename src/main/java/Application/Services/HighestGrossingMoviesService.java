@@ -1,7 +1,7 @@
-package Services;
+package Application.Services;
 
-import Entities.HighestGrossingMovies;
-import Repos.HighestGrossingMoviesRepo;
+import Application.Entities.HighestGrossingMovies;
+import Application.Repos.HighestGrossingMoviesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

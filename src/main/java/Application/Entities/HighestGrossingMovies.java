@@ -1,9 +1,10 @@
-package Entities;
-import javax.persistence.*;
+package Application.Entities;
+import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "mytable")
+@Table(name = "highestgrossingmovies")
 public class HighestGrossingMovies {
 
     @Id

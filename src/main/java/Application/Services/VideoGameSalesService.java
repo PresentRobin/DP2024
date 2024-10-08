@@ -1,7 +1,7 @@
-package Services;
+package Application.Services;
 
-import Entities.VideoGameSales;
-import Repos.VideoGameSalesRepo;
+import Application.Entities.VideoGameSales;
+import Application.Repos.VideoGameSalesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package Controllers;
+package Application.Controllers;
 
-import Entities.HighestGrossingMovies;
-import Services.HighestGrossingMoviesService;
+import Application.Entities.HighestGrossingMovies;
+import Application.Services.HighestGrossingMoviesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,11 +28,7 @@ public class HighestGrossingMoviesController {
     @GetMapping("/{id}")
     public ResponseEntity<HighestGrossingMovies> getMovieById(@PathVariable Long id) {
         Optional<HighestGrossingMovies> highestGrossingMovies = Optional.ofNullable(highestGrossingMoviesService.findById(id));
-        if (highestGrossingMovies.isPresent()) {
-            return ResponseEntity.ok(highestGrossingMovies.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return highestGrossingMovies.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping

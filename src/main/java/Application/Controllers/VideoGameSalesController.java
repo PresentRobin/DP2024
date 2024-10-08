@@ -1,7 +1,7 @@
-package Controllers;
+package Application.Controllers;
 
-import Entities.VideoGameSales;
-import Services.VideoGameSalesService;
+import Application.Entities.VideoGameSales;
+import Application.Services.VideoGameSalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,11 +28,7 @@ public class VideoGameSalesController {
     @GetMapping("/{id}")
     public ResponseEntity<VideoGameSales> getVideoGameById(@PathVariable Long id) {
         Optional<VideoGameSales> videoGameSales = Optional.ofNullable(videoGameSalesService.findById(id));
-        if (videoGameSales.isPresent()) {
-            return ResponseEntity.ok(videoGameSales.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return videoGameSales.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping

@@ -1,7 +1,7 @@
-package Services;
+package Application.Services;
 
-import Entities.MoistMeter;
-import Repos.MoistMeterRepo;
+import Application.Entities.MoistMeter;
+import Application.Repos.MoistMeterRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

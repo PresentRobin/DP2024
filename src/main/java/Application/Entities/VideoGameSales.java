@@ -1,9 +1,10 @@
-package Entities;
+package Application.Entities;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "video_game_sales")
+@Table(name = "videogamesales")
 public class VideoGameSales {
 
     @Id
