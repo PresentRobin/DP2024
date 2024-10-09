@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "highestgrossingmovies")
@@ -14,7 +15,7 @@ public class HighestGrossingMovies {
     private int movieId;
 
     @Column(name = "MovieIndex")
-    private int movieIndex;
+    private Integer movieIndex;
 
     @Column(name = "Title")
     private String title;
@@ -41,13 +42,20 @@ public class HighestGrossingMovies {
     private Date releaseDate;
 
     @Column(name = "VoteAvg")
-    private double voteAvg;
+    private Double voteAvg;
 
     @Column(name = "VoteCount")
     private Integer voteCount;
 
     @Column(name = "FranchiseID")
     private int franchiseId;
+
+    public HighestGrossingMovies() {}
+
+    public HighestGrossingMovies(String title, int franchiseId){
+        this.title = title;
+        this.franchiseId = franchiseId;
+    }
 
     // Getters and Setters
     public int getMovieId() {
@@ -114,6 +122,14 @@ public class HighestGrossingMovies {
         this.budget = budget;
     }
 
+    public Integer getMovieIndex() {
+        return movieIndex;
+    }
+
+    public void setMovieIndex(Integer movieIndex) {
+        this.movieIndex = movieIndex;
+    }
+
     public Date getReleaseDate() {
         return releaseDate;
     }
@@ -122,11 +138,11 @@ public class HighestGrossingMovies {
         this.releaseDate = releaseDate;
     }
 
-    public double getVoteAvg() {
+    public Double getVoteAvg() {
         return voteAvg;
     }
 
-    public void setVoteAvg(double voteAvg) {
+    public void setVoteAvg(Double voteAvg) {
         this.voteAvg = voteAvg;
     }
 
@@ -144,5 +160,30 @@ public class HighestGrossingMovies {
 
     public void setFranchiseId(int franchiseId) {
         this.franchiseId = franchiseId;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie " + movieId + ", " + movieIndex +
+                "\r\nName: " + title +
+                "\r\nEarned: " + lifetimeGross +
+                "\r\nBudget: " + budget +
+                "\r\nRelease: " + releaseDate +
+                "\r\nRuntime: " + runtime +
+                "\r\nFranchise: " + franchiseId +
+                "\r\nStudio: " + studio +
+                "\r\nVotes: " + voteAvg + " of " + voteCount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof HighestGrossingMovies that)) return false;
+        return Objects.equals(this.title, that.title);  // Check equality based on title
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.title);  // Hash based on title
     }
 }

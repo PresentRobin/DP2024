@@ -3,6 +3,8 @@ package Application.Entities;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "videogamesales")
 public class VideoGameSales {
@@ -15,8 +17,8 @@ public class VideoGameSales {
     @Column(name = "rank")
     private int rank;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
     @Column(name = "platform")
     private String platform;
@@ -63,12 +65,12 @@ public class VideoGameSales {
         this.rank = rank;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String name) {
+        this.title = name;
     }
 
     public String getPlatform() {
@@ -141,5 +143,17 @@ public class VideoGameSales {
 
     public void setGlobalSales(double globalSales) {
         this.globalSales = globalSales;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof VideoGameSales that)) return false;
+        return Objects.equals(this.title, that.title);  // Check equality based on title
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.title);  // Hash based on title
     }
 }

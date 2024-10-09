@@ -8,7 +8,7 @@ USE dataprocessingdata;
 CREATE TABLE IF NOT EXISTS VideoGameSales (
     id INT AUTO_INCREMENT PRIMARY KEY,
     rank INT NOT NULL,
-    name VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
     platform VARCHAR(50) NOT NULL,
     year INT,
     genre VARCHAR(50) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS VideoGameSales (
 );
 
 -- Insert sample data into VideoGameSales table
-INSERT INTO VideoGameSales (rank, name, platform, year, genre, publisher, na_sales, eu_sales, jp_sales, other_sales, global_sales)
+INSERT INTO VideoGameSales (rank, title, platform, year, genre, publisher, na_sales, eu_sales, jp_sales, other_sales, global_sales)
 VALUES
 (1,'Wii Sports','Wii',2006,'Sports','Nintendo',41.49,29.02,3.77,8.46,82.74),
 (2,'Super Mario Bros.','NES',1985,'Platform','Nintendo',29.08,3.58,6.81,0.77,40.24),
@@ -17012,8 +17012,8 @@ CREATE TABLE IF NOT EXISTS Moistmeter (
     review_date date,
     category VARCHAR(50) NOT NULL,
     title VARCHAR(255) NOT NULL,
-    imdb_rating DECIMAL(3, 1) CHECK (imdb_rating >= 0 AND imdb_rating <= 10),
-    rt_critics_rating DECIMAL CHECK (rt_critics_rating >= 0 AND rt_critics_rating < 101),
+    imdb_rating DECIMAL,
+    rt_critics_rating DECIMAL,
     moistmeter_rating DECIMAL CHECK (moistmeter_rating >= 0 AND moistmeter_rating <= 100),
     genre VARCHAR(50) NOT NULL
 );

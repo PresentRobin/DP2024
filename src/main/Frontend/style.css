@@ -1,20 +1,42 @@
 body {
+    background-color: rgba(1, 63, 88, 255);
+    color: rgba(0, 186, 213, 255);
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
+    text-align: center;
     padding: 20px;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
-    text-align: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+}
+
+button {
+    padding: 10px;
+    background-color: rgba(0, 186, 213, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(0, 150, 173, 255);
+}
+
+#result {
+    margin-top: 20px;
+}
+
+#graph-container {
+    margin-top: 30px;
 }
 
 h1 {
-    color: #333;
-}
-
-canvas {
-    margin-bottom: 50px;
+    color: rgba(0, 186, 213, 255);
 }

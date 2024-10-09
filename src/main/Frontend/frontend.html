@@ -3,20 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Data Visualization</title>
+    <title>Search Movies and Video Games</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <div class="container">
-    <h1>Video Game Sales Visualization</h1>
-    <canvas id="videoGameSalesChart"></canvas>
+    <h1>Search for Movies or Video Games</h1>
 
-    <h1>Moistmeter Visualization</h1>
-    <canvas id="moistmeterChart"></canvas>
+    <!-- Radio buttons for choosing between Movies and Video Games -->
+    <label>
+        <input type="radio" name="category" value="movies" checked> Movies
+    </label>
+    <label>
+        <input type="radio" name="category" value="games"> Video Games
+    </label>
 
-    <h1>Highest Grossing Movies Visualization</h1>
-    <canvas id="highestGrossingMoviesChart"></canvas>
+    <!-- Search box -->
+    <input type="text" id="search" placeholder="Enter movie or game title" />
+    <button onclick="search()">Search</button>
+
+    <!-- Result container -->
+    <div id="result"></div>
+
+    <!-- Graph container -->
+    <div id="graph-container"></div>
 </div>
 <script src="backend.js"></script>
 </body>

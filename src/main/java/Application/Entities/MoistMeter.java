@@ -3,6 +3,7 @@ package Application.Entities;
 
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Table(name = "moistmeter")
@@ -23,13 +24,13 @@ public class MoistMeter {
     private String title;
 
     @Column(name = "imdb_rating")
-    private double imdbRating;
+    private Double imdbRating;
 
     @Column(name = "rt_critics_rating")
-    private double rtCriticsRating;
+    private Double rtCriticsRating;
 
     @Column(name = "moistmeter_rating")
-    private double moistmeterRating;
+    private Double moistmeterRating;
 
     @Column(name = "genre")
     private String genre;
@@ -68,7 +69,7 @@ public class MoistMeter {
         this.title = title;
     }
 
-    public double getImdbRating() {
+    public Double getImdbRating() {
         return imdbRating;
     }
 
@@ -76,7 +77,7 @@ public class MoistMeter {
         this.imdbRating = imdbRating;
     }
 
-    public double getRtCriticsRating() {
+    public Double getRtCriticsRating() {
         return rtCriticsRating;
     }
 
@@ -84,7 +85,7 @@ public class MoistMeter {
         this.rtCriticsRating = rtCriticsRating;
     }
 
-    public double getMoistmeterRating() {
+    public Double getMoistmeterRating() {
         return moistmeterRating;
     }
 
@@ -98,5 +99,17 @@ public class MoistMeter {
 
     public void setGenre(String genre) {
         this.genre = genre;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof MoistMeter that)) return false;
+        return Objects.equals(this.title, that.title);  // Check equality based on title
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.title);  // Hash based on title
     }
 }

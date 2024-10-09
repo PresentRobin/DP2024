@@ -3,6 +3,7 @@ package Application.Controllers;
 import Application.Entities.HighestGrossingMovies;
 import Application.Services.HighestGrossingMoviesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,8 @@ public class HighestGrossingMoviesController {
         Optional<HighestGrossingMovies> highestGrossingMovies = Optional.ofNullable(highestGrossingMoviesService.findById(id));
         return highestGrossingMovies.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+
 
     @PostMapping
     public HighestGrossingMovies createMovie(@RequestBody HighestGrossingMovies highestGrossingMovies) {
